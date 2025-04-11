@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Öğrenci Not Analizi</title>
+  <style>
+    body { font-family: Arial; max-width: 700px; margin: auto; padding: 2rem; }
+    textarea, input { width: 100%; margin-top: 1rem; }
+    .result { margin-top: 2rem; padding: 1rem; background: #f1f1f1; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Öğrenci Not Analizi</h1>
+  <form method="post" action="/analyze">
+    <label>Öğrenci Notları (Ad: Not)</label>
+    <textarea name="students" rows="6" required>Ali: 78
+Ayşe: 92
+Mehmet: 66</textarea>
+
+    <label>Prompt (analiz talebi)</label>
+    <input type="text" name="prompt" value="Bu notlara göre genel analiz yap ve en başarılı öğrenciyi belirt." required>
+
+    <button type="submit">Analiz Et</button>
+  </form>
+
+  {% if result %}
+  <div class="result">
+    <h2>Sonuç:</h2>
+    <p>{{ result }}</p>
+  </div>
+  {% endif %}
+</body>
+</html>
